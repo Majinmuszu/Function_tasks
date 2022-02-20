@@ -109,4 +109,14 @@ const objEqual = (obj1, obj2) =>
 // example input ['color', 'size'], { color: 'Blue', id: '22', size: 'xl' }
 // example output { id: '22' }
 
+// const nineArr = ["color", "size"];
+// const nineObj = { color: "Blue", id: "22", size: "xl" };
 
+const objWithoutSomeKeys = (arr, obj) => {
+  let acc = obj;
+  arr.forEach((k) => {
+    Object.keys(obj).includes(k) ? delete acc[k] : null;
+  });
+  return acc;
+};
+// console.log(objWithoutSomeKeys(nineArr, nineObj));
