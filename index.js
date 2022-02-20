@@ -1,5 +1,31 @@
 // 1. Please write a function that shows the usage of closures
 
+const fnOne = (x) => {
+  const initNum = x;
+
+  return {
+    addTen: () => {
+      return `Init + 10 = ${initNum + 10}`;
+    },
+    addAmount: (amount) => {
+      return `Init + amount = ${initNum + amount}`;
+    },
+    getInitNum: () => {
+      return `Init Number = ${initNum}`;
+    },
+  };
+};
+
+const variable = fnOne(25);
+
+//console.log(variable()) => error
+console.log(fnOne()); // nothing to see here
+console.table([
+  variable.addTen(),
+  variable.addAmount(244),
+  variable.getInitNum(),
+]);
+
 // 2. Please write a function that returns a sum of array items
 // example input [9, 1, 22, 0, 2]
 // example output 34
@@ -114,8 +140,8 @@ const objEqual = (obj1, obj2) =>
 
 const objWithoutSomeKeys = (arr, obj) => {
   let acc = obj;
-  arr.forEach((k) => {
-    Object.keys(obj).includes(k) ? delete acc[k] : null;
+  arr.forEach((key) => {
+    Object.keys(obj).includes(key) ? delete acc[key] : null;
   });
   return acc;
 };
